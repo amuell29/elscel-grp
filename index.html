@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>elscel-grp | Professional IT Services & Technology Solutions</title>
+    <meta name="description" content="elscel-grp provides professional IT services including IT support, cloud solutions, cybersecurity, network management, and software solutions.">
+
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="elscel-grp">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="elscel-grp | IT Services">
+    <meta property="og:description" content="Reliable IT services for modern businesses.">
+    <meta property="og:type" content="website">
+
+    <!-- Embedded CSS -->
+    <style>
+        :root {
+            --primary: #0a2540;
+            --secondary: #2563eb;
+            --light: #f8fafc;
+            --dark: #020617;
+            --gray: #475569;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* Header */
+        .site-header {
+            background: #fff;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo h1 {
+            font-size: 1.4rem;
+            color: var(--primary);
+        }
+
+        .main-navigation ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .main-navigation a {
+            font-weight: 500;
+            color: var(--gray);
+        }
+
+        .main-navigation a:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), #020617);
+            color: #fff;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: auto;
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background: #fff;
+            color: var(--primary);
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        section p {
+            max-width: 800px;
+            color: var(--gray);
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-item {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        .service-item h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        /* Why Us */
+        .why-us ul {
+            margin-top: 1.5rem;
+            list-style: none;
+        }
+
+        .why-us li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .why-us li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* CTA */
+        .cta {
+            background: var(--secondary);
+            color: #fff;
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: #fff;
+        }
+
+        .cta p {
+            margin: 1rem auto 2rem;
+            color: #e0e7ff;
+        }
+
+        /* Contact */
+        .contact-form {
+            max-width: 500px;
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-weight: 500;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.6rem;
+            border-radius: 6px;
+            border: 1px solid #cbd5f5;
+            font-size: 1rem;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        .site-footer {
+            background: #020617;
+            color: #cbd5f5;
+            text-align: center;
+            padding: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .main-navigation ul {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="container">
+        <div class="logo">
+            <h1>elscel-grp</h1>
+        </div>
+        <nav class="main-navigation" aria-label="Main Navigation">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h2>Professional IT Services & Technology Solutions</h2>
+        <p>We help businesses build secure, scalable, and reliable IT environments that support growth.</p>
+        <a href="#contact" class="btn-primary">Get Started</a>
+    </div>
+</section>
+
+<section id="about">
+    <div class="container">
+        <h2>About elscel-grp</h2>
+        <p>
+            elscel-grp delivers dependable IT services designed to simplify technology,
+            enhance security, and improve operational efficiency for businesses of all sizes.
+        </p>
+    </div>
+</section>
+
+<section id="services" class="services">
+    <div class="container">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-item">
+                <h3>IT Support</h3>
+                <p>Proactive monitoring, helpdesk support, and system maintenance.</p>
+            </div>
+            <div class="service-item">
+                <h3>Cloud Solutions</h3>
+                <p>Secure cloud migration, management, and optimization.</p>
+            </div>
+            <div class="service-item">
+                <h3>Cybersecurity</h3>
+                <p>Advanced protection strategies to safeguard data and systems.</p>
+            </div>
+            <div class="service-item">
+                <h3>Network Management</h3>
+                <p>Reliable, high-performance network infrastructure solutions.</p>
+            </div>
+            <div class="service-item">
+                <h3>Software Solutions</h3>
+                <p>Custom integrations and business-focused software services.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="why-us" class="why-us">
+    <div class="container">
+        <h2>Why Choose elscel-grp</h2>
+        <ul>
+            <li>Experienced and certified IT professionals</li>
+            <li>Security-first approach</li>
+            <li>Scalable solutions for growing businesses</li>
+            <li>Reliable long-term support</li>
+        </ul>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <h2>Let’s Build Your IT the Right Way</h2>
+        <p>Partner with elscel-grp for modern, secure, and reliable technology solutions.</p>
+        <a href="#contact" class="btn-secondary">Contact Us</a>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <h2>Contact Us</h2>
+        <form class="contact-form" method="post" action="#">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Send Message</button>
+        </form>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <p>&copy; 2025 elscel-grp. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
